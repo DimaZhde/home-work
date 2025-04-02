@@ -42,13 +42,12 @@ public class Main {
     }
 
     //5 (если сумма входящих (10 до 20] - true; false)
-    public static boolean ChisloVDiapazone(int a, int b) {
-        int summa = a + b;
-        return summa > 10 && summa <= 20;
+    public static boolean chisloVDiapazone(int a, int b) {
+        return (a + b) >= 10 && (a + b) <= 20;
     }
 
     //6 (Если входящее: >=0 положительное; <0 отрицательное)
-    public static void ProverkaChisla(int a) {
+    public static void proverkaChisla(int a) {
         if (a >= 0) {
             System.out.println("Число положительное");
         } else {
@@ -57,21 +56,20 @@ public class Main {
     }
 
     //7 (если входящее: х<0 true; x>=0 false)
-    public static boolean isNegative(int х) {
-        return х < 0;
+    public static boolean polozhOrNot(int x) {
+        return x < 0;
     }
 
     //8 (печатаем входящую строку в кол-ве входящего числа)
-    public static void PtchatStrokiXRaz(String stroka, int pechatRaz) {
+    public static void ptchatStrokiXRaz(String stroka, int pechatRaz) {
         for (int i = 0; i < pechatRaz; i++) {
             System.out.println(stroka);
         }
     }
 
     //9 (Каждый 4й високосный, кроме каждого 100го, но каждый 400й високосный)
-    public static boolean VisokosniyGod(int god) {
+    public static boolean visokosniyGod(int god) {
         return (god % 4 == 0 && god % 100 != 0) || (god % 400 == 0);
-
     }
 
     //10 (Задать массив из элементов 0 и 1 и циклом заменить 0 на 1, 1 на 0)
@@ -82,15 +80,11 @@ public class Main {
             System.out.print(i);
         }
         System.out.println();
-
         for (int i = 0; i < massiv.length; i++) {
             if (massiv[i] == 1) {
                 massiv[i] = 0;
-            } else {
-                massiv[i] = 1;
             }
         }
-
         System.out.print("Инвертированный массив: ");
         for (int i : massiv) {
             System.out.print(i);
@@ -107,7 +101,6 @@ public class Main {
         for (int i = 0; i < 100; i++) {
             System.out.print(massiv100[i] + " ");
         }
-
     }
 
     //12 (Задать массив и циклом числа <6 умножить на 2)
@@ -117,13 +110,11 @@ public class Main {
         for (int i : massiv) {
             System.out.print(i + " ");
         }
-
         for (int i = 0; i < massiv.length; i++) {
             if (massiv[i] < 6) {
                 massiv[i] *= 2;
             }
         }
-
         System.out.print("\nИзмененный массив: ");
         for (int i : massiv) {
             System.out.print(i + " ");
@@ -132,14 +123,12 @@ public class Main {
     }
 
     //13 (Квадратный массив с диагоналями из единиц)
-    public static void Matrica(int razmer) {
+    public static void matrica(int razmer) {
         int[][] MatricaRazmer = new int[razmer][razmer];
-
         for (int i = 0; i < razmer; i++) {
             MatricaRazmer[i][i] = 1; // Первая диагональ (\)
             MatricaRazmer[i][razmer - 1 - i] = 1; // Вторая диагональ (/)
         }
-
         for (int[] row : MatricaRazmer) {
             for (int i : row) {
                 System.out.print(i + " ");
@@ -154,7 +143,6 @@ public class Main {
         for (int i = 0; i < len; i++) {
             massiv[i] = initialValue;
         }
-
         System.out.print("Одномерный массив длиной " + len + " со значениями " + initialValue + ": ");
         for (int i : massiv) {
             System.out.print(i + " ");
@@ -178,15 +166,21 @@ public class Main {
         System.out.println("\n ---Задание 04---");
         compareNumbers();
 
+        System.out.println("\n ---Задание 05---");
+        System.out.println(chisloVDiapazone(1, 3));
+
         System.out.println("\n ---Задание 06---");
-        ProverkaChisla(-5);  // Отрицательное
-        ProverkaChisla(0);    // Положительное (0)
+        proverkaChisla(-5);  // Отрицательное
+        proverkaChisla(0);    // Положительное (0)
+
+        System.out.println("\n ---Задание 07---");
+        System.out.println(polozhOrNot(0));
 
         System.out.println("\n ---Задание 08---");
-        PtchatStrokiXRaz("Котики", 5); // Печатает 5 раз
+        ptchatStrokiXRaz("Котики", 5); // Печатает 5 раз
 
         System.out.println("\n ---Задание 09---");
-        System.out.println(VisokosniyGod(2025)); // true
+        System.out.println(visokosniyGod(2025)); // true
 
         System.out.println("\n ---Задание 10 (Инверсия массива)---");
         invertMassiv();
@@ -198,10 +192,9 @@ public class Main {
         massivX6();
 
         System.out.println("\n ---Задание 13---");
-        Matrica(7);
+        matrica(7);
 
         System.out.println("\n ---Задание 14---");
         odnomerMassiv(7, 12);
     }
-
 }
