@@ -1,0 +1,35 @@
+package lesson11_3;
+// Прямоугольник
+class Chetireangle implements Shape {
+    private double width;
+    private double height;
+    private String fillColor;
+    private String borderColor;
+
+    public Chetireangle(double width, double height, String fillColor, String borderColor) {
+        this.width = width;
+        this.height = height;
+        this.fillColor = fillColor;
+        this.borderColor = borderColor;
+    }
+
+    @Override
+    public double getArea() {
+        return width * height;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2 * (width + height);
+    }
+
+    @Override
+    public String getFillColor() {
+        return fillColor;
+    }
+
+    @Override
+    public String getBorderColor() {
+        return borderColor;
+    }
+}
