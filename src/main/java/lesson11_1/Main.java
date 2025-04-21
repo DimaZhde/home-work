@@ -20,9 +20,10 @@ public class Main {
         System.out.println("\nВсего животных: " + Animals.getTotalAnimals());
         System.out.println("- Из них собак: " + Dog.getTotalDogs());
         System.out.println("- Из них котов: " + Cat.getTotalCats());
-        System.out.println("===================================");
+
 
         // Кормление котов
+        System.out.println("===================================");
         System.out.println("   Кормление котов:");
 
         // Создаем миску с 50 единицами корма
@@ -42,44 +43,20 @@ public class Main {
         }
 
         // Выводим информацию о сытости котов после кормежки
-        System.out.println("\nСостояние котов после кормления:");
+        System.out.println("===================================");
+        System.out.println("Состояние котов после кормления:");
         for (int i = 0; i < cats.length; i++) {
             System.out.println(cats[i].getName() + ": " + (cats[i].sitostKota() ? "сыт" : "голоден"));
         }
 
         // Выводим остаток еды в миске
-        System.out.println("\nОстаток еды в миске: " + miska.getinfoFood());
+        System.out.println("===================================");
+        System.out.println("Остаток еды в миске: " + miska.getinfoFood());
 
         // Добавляем еду в миску
         miska.addFood(30);
         System.out.println("После добавления еды в миске: " + miska.getinfoFood());
-    }
-}
-
-class MiskaFood {
-    private int food;
-
-    public MiskaFood(int nachaloFood) {
-        this.food = nachaloFood;
-    }
-
-    public boolean umenshenieFood(int korm) {
-        if (korm <= 0) {
-            return false;
-        }
-        if (this.food >= korm) {
-            this.food -= korm;
-            return true;
-        }
-        return false;
-    }
-
-    public void addFood(int korm) {
-        this.food += korm;
-    }
-
-    public int getinfoFood() {
-        return this.food;
+        System.out.println("===================================");
     }
 }
 
