@@ -39,6 +39,6 @@ public class Main {
         }
 
         // Выводим студентов 2 курса
-        service.printStudentsCourse(students, 2);
+        service.printStudents(students, 2);
     }
 }

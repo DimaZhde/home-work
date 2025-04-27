@@ -18,7 +18,7 @@ public class StudentService {
         }
     }
 
-    public void printStudentsCourse(java.util.Set<Student> students, int course) {
+    public void printStudents(java.util.Set<Student> students, int course) {
         System.out.println("\n===== Студенты " + course + " курса =====");
         for (Student student : students) {
             if (student.getCourse() == course) {
