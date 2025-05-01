@@ -5,7 +5,7 @@ import static org.testng.Assert.*;
 public class MainTest {
     private final Main main = new Main();
 
-    // ========== Тесты для factorial() ==========
+    // ========== Тесты для факториала ==========
     @Test
     public void testFactorialPositive() {
         assertEquals(main.factorial(5), 120L);
@@ -22,7 +22,7 @@ public class MainTest {
         main.factorial(21); // >20 вызывает исключение
     }
 
-    // ========== Тесты для triangleArea() ==========
+    // ========== Тесты для площади треугольника ==========
     @Test
     public void testTriangleAreaValid() {
         assertEquals(main.triangleArea(10, 5), 25.0);
@@ -38,7 +38,7 @@ public class MainTest {
         main.triangleArea(10, -5);
     }
 
-    // ========== Тесты для calculate() ==========
+    // ========== Тесты для калькулятора ==========
     @Test
     public void testCalculateAddition() {
         assertEquals(main.calculate(3, 2, "+"), 5.0);
@@ -59,7 +59,7 @@ public class MainTest {
         main.calculate(10, 2, "unknown");
     }
 
-    // ========== Тесты для compare() ==========
+    // ========== Тесты для сравнения чисел ==========
     @Test
     public void testCompareGreater() {
         assertEquals(main.compare(5, 3), "5 > 3");
