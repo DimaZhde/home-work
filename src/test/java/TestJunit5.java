@@ -43,7 +43,7 @@ class TestJunit5 {
         assertThrows(IllegalArgumentException.class, () -> math.triangleArea(-1, 5));
     }
 
-    // Тесты арифметических операций
+    // Тест арифметических операций
     @ParameterizedTest
     @CsvSource({"5,3,+,8", "10,4,-,6", "7,8,*,56", "10,2,/,5.0"})
     void validCalculations(int a, int b, String op, double expected) {

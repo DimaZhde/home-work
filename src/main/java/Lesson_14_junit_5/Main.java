@@ -4,7 +4,7 @@ public class Main {
         //Факториал
     public long factorial(int n) {
         if (n < 0) {
-            throw new IllegalArgumentException("Факториал для отрицательного числа не определяется");
+            throw new IllegalArgumentException("Факториал отрицательного числа не определяется");
         }
         if (n > 20) {
             throw new IllegalArgumentException("Слишком большое число для long");
