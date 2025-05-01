@@ -1,4 +1,4 @@
-package Lesson_14_junit_5;
+package Lesson_14_testng;
 
 public class Main {
         //Факториал
