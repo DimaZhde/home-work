@@ -1,12 +1,10 @@
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-//import java.util.List;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.*;
-
 public class MtsOnlinePaymentTest extends TestBase {
 
     @Test
@@ -23,9 +21,6 @@ public class MtsOnlinePaymentTest extends TestBase {
                 "Название блока не соответствует ожидаемому");
     }
 
-
-
-
     @Test
     public void testPaymentLogosSimple() {
         new WebDriverWait(driver, Duration.ofSeconds(1))
@@ -34,7 +29,6 @@ public class MtsOnlinePaymentTest extends TestBase {
                 .click();
 
         String[] expectedLogos = {"visa", "visa-verified", "mastercard", "mastercard-secure", "belkart"};
-
         for (String logoName : expectedLogos) {
             WebElement logo = driver.findElement(By.xpath(
                     "//*[@id='pay-section']//*[" +
@@ -67,7 +61,6 @@ public class MtsOnlinePaymentTest extends TestBase {
         assertTrue(cardPaymentHeader.isDisplayed(),
                 "Заголовок 'Оплата банковской картой' не отображается");
     }
-
 
     @Test
     public void testPaymentProcess() throws InterruptedException {
@@ -102,7 +95,6 @@ public class MtsOnlinePaymentTest extends TestBase {
         assertTrue(
                 driver.findElement(By.tagName("body")).isDisplayed() &&
                         driver.findElement(By.tagName("body")).getText().contains("Услуги связи"),
-                "Номер 375297777777 не отображается на странице"
-        );
+                "Номер 375297777777 не отображается на странице");
     }
 }
