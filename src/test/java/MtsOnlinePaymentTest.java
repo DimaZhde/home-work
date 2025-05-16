@@ -5,14 +5,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.*;
+
 public class MtsOnlinePaymentTest extends TestBase {
 
     @Test
     public void testOnlinePaymentTitle() {
-        new WebDriverWait(driver, Duration.ofSeconds(1))
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//*[@id='cookie-agree']")))
-                .click();
+        // Проверка куки-баннера (1 секунда ожидания)
+        try {
+            Thread.sleep(1000); // Ждем 1 секунду
+            driver.findElement(By.xpath("//*[@id='cookie-agree']")).click();
+        } catch (Exception ignored) {}
+
         WebElement title = driver.findElement(
                 By.xpath("//*[@id='pay-section']//h2"));
 
@@ -23,10 +26,11 @@ public class MtsOnlinePaymentTest extends TestBase {
 
     @Test
     public void testPaymentLogosSimple() {
-        new WebDriverWait(driver, Duration.ofSeconds(1))
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//*[@id='cookie-agree']")))
-                .click();
+        // Проверка куки-баннера (1 секунда ожидания)
+        try {
+            Thread.sleep(1000); // Ждем 1 секунду
+            driver.findElement(By.xpath("//*[@id='cookie-agree']")).click();
+        } catch (Exception ignored) {}
 
         String[] expectedLogos = {"visa", "visa-verified", "mastercard", "mastercard-secure", "belkart"};
         for (String logoName : expectedLogos) {
@@ -41,10 +45,11 @@ public class MtsOnlinePaymentTest extends TestBase {
 
     @Test
     public void testDetailsLink() {
-        new WebDriverWait(driver, Duration.ofSeconds(1))
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//*[@id='cookie-agree']")))
-                .click();
+        // Проверка куки-баннера (1 секунда ожидания)
+        try {
+            Thread.sleep(1000); // Ждем 1 секунду
+            driver.findElement(By.xpath("//*[@id='cookie-agree']")).click();
+        } catch (Exception ignored) {}
 
         // 1. Находим и кликаем ссылку "Подробнее о сервисе"
         WebElement detailsLink = driver.findElement(
@@ -64,10 +69,11 @@ public class MtsOnlinePaymentTest extends TestBase {
 
     @Test
     public void testPaymentProcess() throws InterruptedException {
-        new WebDriverWait(driver, Duration.ofSeconds(1))
-                .until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath("//*[@id='cookie-agree']")))
-                .click();
+        // Проверка куки-баннера (1 секунда ожидания)
+        try {
+            Thread.sleep(1000); // Ждем 1 секунду
+            driver.findElement(By.xpath("//*[@id='cookie-agree']")).click();
+        } catch (Exception ignored) {}
 
         // 1. Заполняем поле телефона
         WebElement phoneInput = driver.findElement(By.xpath("//*[@id='connection-phone']"));
