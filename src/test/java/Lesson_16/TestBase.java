@@ -1,3 +1,5 @@
+package Lesson_16;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,8 +10,9 @@ import java.time.Duration;
 
 public class TestBase {
     protected WebDriver driver;
+
     @BeforeEach
-    public void setUp()  {
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
