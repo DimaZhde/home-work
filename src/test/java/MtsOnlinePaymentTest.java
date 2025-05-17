@@ -59,7 +59,7 @@ public class MtsOnlinePaymentTest extends TestBase {
         // 2. Проверяем заголовок на открывшейся странице
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        // Вариант 1: По тексту заголовка (самый надежный)
+        // По тексту заголовка
         WebElement cardPaymentHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//h3[contains(text(),'Оплата банковской картой')]")));
 
@@ -95,12 +95,25 @@ public class MtsOnlinePaymentTest extends TestBase {
         continueButton.click();
 
         // 5. Ожидаем обработки (3 секунды)
-        Thread.sleep(4000);
+        Thread.sleep(2000);
 
         // 6. Проверяем результат - ищем номер 375297777777 на странице
-        assertTrue(
-                driver.findElement(By.tagName("body")).isDisplayed() &&
-                        driver.findElement(By.tagName("body")).getText().contains("Услуги связи"),
-                "Номер 375297777777 не отображается на странице");
+        // 2. Ожидаем и переключаемся на iframe
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement iframe = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector("iframe.bepaid-iframe")));
+        driver.switchTo().frame(iframe);
+
+        // 3. Ищем номер телефона внутри iframe
+        WebElement elementWithPhone = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[contains(text(), '375297777777')]")));
+
+        // 4. Извлекаем полный текст и проверяем наличие номера
+        String fullText = elementWithPhone.getText();
+        assertTrue(fullText.contains("375297777777"),
+                "Номер телефона 375297777777 не найден в тексте: " + fullText);
+
+        // 5. Возвращаемся к основному контенту
+        driver.switchTo().defaultContent();
     }
 }
