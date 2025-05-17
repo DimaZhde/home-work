@@ -20,7 +20,7 @@
     </properties>
 
     <dependencies>
-        <!-- Selenium -->
+        <!-- Selenium  -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
